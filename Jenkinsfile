@@ -7,14 +7,14 @@ pipeline{
         stage("JavaApplication-GithubPull"){
             steps{
                 //Testing the Java Maven Application
-                sh "mvn --version"
+                sh "mvn test"
                 
             }
         }
         stage("JavaApplication-Build"){
             steps{
                 //Maven clean installing and Creating a .WAR file
-                
+                sh "mvn package"
             }
         }
         stage("JavaApplication-DeployOnTestingServer"){
